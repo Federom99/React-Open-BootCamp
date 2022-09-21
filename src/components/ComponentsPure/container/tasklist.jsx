@@ -7,9 +7,11 @@ export default function TaskList(){
   const defaultTask = new Task("example", "default", false, LEVELS.normal)
 
     const [state, setState]=useState([defaultTask])
+    const [loading, setLoading]=useState(true)
 
     useEffect(()=>{
       console.log("tarea modificada")
+      setLoading(false)
       return()=>{
         console.log("tarea por desaparecer")
       }

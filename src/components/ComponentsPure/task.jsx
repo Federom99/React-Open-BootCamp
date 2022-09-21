@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Task } from "../../models/class";
 
 export default function Taskk({props}){
+
+    useEffect(()=>{
+        console.log("tarea creada")
+        return()=>{
+            console.log(`la tarea ${props.name} va a desaparecer`)
+        }
+    },[props])
+
+
     return(
         <div>
             <h2>  name:{props.name} </h2>
