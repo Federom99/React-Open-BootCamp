@@ -40,7 +40,7 @@ export default function Taskk({ props }) {
     if(props.completed){
         return(<i className="bi-toggle-on" style={{ color: "green" }}></i>)
     }else{
-        return(<i className="bi-toggle-of" style={{ color: "grey" }}></i>)
+        return(<i className="bi-toggle2-off" style={{ color: "grey" }}></i>)
     }
   }
 

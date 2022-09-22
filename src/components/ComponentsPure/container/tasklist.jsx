@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Task } from "../../../models/class";
 import { LEVELS } from "../../../models/levels";
+import { TaskForm } from "../forms/taskform";
 import Taskk from "../task";
 
 export default function TaskList() {
@@ -57,6 +58,7 @@ export default function TaskList() {
               </tbody>
             </table>
           </div>
+          <TaskForm></TaskForm>
         </div>
       </div>
     </div>
