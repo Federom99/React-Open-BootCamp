@@ -4,9 +4,21 @@ import { LEVELS } from "../../../models/levels";
 import Taskk from "../task";
 
 export default function TaskList() {
-  const defaultTask = new Task("example", "default", false, LEVELS.normal);
+  const defaultTask = new Task("example", "description", true, LEVELS.normal);
+  const defaultTask2 = new Task(
+    "example2",
+    "description2",
+    false,
+    LEVELS.urgente
+  );
+  const defaultTask3 = new Task(
+    "example3",
+    "description3",
+    false,
+    LEVELS.bloqueante
+  );
 
-  const [state, setState] = useState([defaultTask]);
+  const [state, setState] = useState([defaultTask, defaultTask2, defaultTask3]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,13 +51,14 @@ export default function TaskList() {
                 </tr>
               </thead>
               <tbody>
-              <Taskk props={defaultTask}></Taskk>
+                {state.map((props, index) => {
+                  return <Taskk key={index} props={props}></Taskk>;
+                })}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

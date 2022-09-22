@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Task } from "../../models/class";
+import { LEVELS } from "../../models/levels";
 
 export default function Taskk({ props }) {
   useEffect(() => {
@@ -8,6 +9,40 @@ export default function Taskk({ props }) {
       console.log(`la tarea ${props.name} va a desaparecer`);
     };
   }, [props]);
+
+  function taskLevelBadge() {
+    switch (props.level) {
+      case LEVELS.normal:
+        return (
+          <h6 className="mb-0">
+            <span className="badge bg-primary">{props.level}</span>
+          </h6>
+        );
+      case LEVELS.urgente:
+        return (
+          <h6 className="mb-0">
+            <span className="badge bg-warning">{props.level}</span>
+          </h6>
+        );
+      case LEVELS.bloqueante:
+        return (
+          <h6 className="mb-0">
+            <span className="badge bg-danger">{props.level}</span>
+          </h6>
+        );
+
+      default:
+        break;
+    }
+  }
+
+  function taskIcon(){
+    if(props.completed){
+        return(<i className="bi-toggle-on" style={{ color: "green" }}></i>)
+    }else{
+        return(<i className="bi-toggle-of" style={{ color: "grey" }}></i>)
+    }
+  }
 
   return (
     <tr className="fw-normal">
@@ -18,19 +53,12 @@ export default function Taskk({ props }) {
         <span>{props.description}</span>
       </td>
       <td className="align-middle">
-        <span>{props.level}</span>
+        {taskLevelBadge()}
       </td>
       <td className="align-middle">
-        <span>{props.completed?"completada":"no completada"} </span>
+        {taskIcon()}
+        <i className="bi-trash" style={{ color: "tomato" }}></i>
       </td>
-      
     </tr>
-
-    // <div>
-    //     <h2>  name:{props.name} </h2>
-    //     <h2>  description:{props.description} </h2>
-    //     <h2>  level:{props.level} </h2>
-    //     <h5> completed: {props.completed?"completada":"no completada"}  </h5>
-    // </div>
   );
 }
