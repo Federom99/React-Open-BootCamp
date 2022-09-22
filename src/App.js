@@ -9,14 +9,14 @@ import MiComponenteConContexto from './hooks/ejemplo3';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Saludar name="fede"></Saludar> */}
-        {/* <TaskList></TaskList> */}
+        <TaskList></TaskList>
         {/* <Ejemplo></Ejemplo> */}
         {/* <Ejemplo2></Ejemplo2> */}
-        <MiComponenteConContexto></MiComponenteConContexto>
-      </header>
+        {/* <MiComponenteConContexto></MiComponenteConContexto> */}
+      {/* </header> */}
     </div>
   );
 }

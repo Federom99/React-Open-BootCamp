@@ -1,33 +1,51 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Task } from "../../../models/class";
 import { LEVELS } from "../../../models/levels";
 import Taskk from "../task";
 
-export default function TaskList(){
-  const defaultTask = new Task("example", "default", false, LEVELS.normal)
+export default function TaskList() {
+  const defaultTask = new Task("example", "default", false, LEVELS.normal);
 
-    const [state, setState]=useState([defaultTask])
-    const [loading, setLoading]=useState(true)
+  const [state, setState] = useState([defaultTask]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(()=>{
-      console.log("tarea modificada")
-      setLoading(false)
-      return()=>{
-        console.log("tarea por desaparecer")
-      }
-    },[state])
+  useEffect(() => {
+    console.log("tarea modificada");
+    setLoading(false);
+    return () => {
+      console.log("tarea por desaparecer");
+    };
+  }, [state]);
 
-    
-
-    return(
-        <div>
-
-      <div>
-        your task: 
+  return (
+    <div>
+      <div className="col-12">
+        <div className="card">
+          <div className="card-header p-3">
+            <h5> Your Task: </h5>
+          </div>
+          <div
+            className="card-body"
+            data-mdb-perfect-scrollbar="true"
+            style={{ position: "relative", height: "400px" }}
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              <Taskk props={defaultTask}></Taskk>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
-            <Taskk props={defaultTask} ></Taskk>
-
-        </div>
-    )
+    </div>
+  );
 }
