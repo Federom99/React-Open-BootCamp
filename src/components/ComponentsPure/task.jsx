@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Task } from "../../models/class";
 import { LEVELS } from "../../models/levels";
 
-export default function Taskk({ props, complete }) {
+
+export default function Taskk({ props, complete, deletee }) {
   useEffect(() => {
     console.log("tarea creada");
     return () => {
@@ -57,7 +58,7 @@ export default function Taskk({ props, complete }) {
       </td>
       <td className="align-middle">
         {taskIcon()}
-        <i className="bi-trash task-action" style={{ color: "tomato" }}></i>
+        <i onClick={()=>deletee(props)} className="bi-trash task-action" style={{ color: "tomato" }}></i>
       </td>
     </tr>
   );

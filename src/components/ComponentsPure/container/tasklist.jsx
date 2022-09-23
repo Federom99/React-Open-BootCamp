@@ -33,10 +33,20 @@ export default function TaskList() {
 
     function completeTask(task){
       console.log("complete this task;", task)
+      const index = state.indexOf(task)
+      const tempTask= [...state]
+      tempTask[index].completed=!tempTask[index].completed
+      setState(tempTask)
 
     }
 
-
+    function deleteTask(task){
+      console.log("delete this task;", task)
+      const index = state.indexOf(task)
+      const tempTask= [...state]
+      tempTask.splice(index,1)
+      setState(tempTask)
+    }
 
 
 
@@ -66,7 +76,7 @@ export default function TaskList() {
               </thead>
               <tbody>
                 {state.map((props, index) => {
-                  return <Taskk key={index} props={props} complete={completeTask} ></Taskk>;
+                  return <Taskk key={index} props={props} complete={completeTask} deletee={deleteTask} ></Taskk>;
                 })}
               </tbody>
             </table>
