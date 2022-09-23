@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Child } from "../child";
 
-export const Father = () =>{
-    return(
-        <div>
+export const Father = () => {
+  const [name, setName] = useState("Fede");
 
-            <Child></Child>
+  function showMessage(text) {
+    alert(`mensaje recibido ${text}`);
+  }
 
-        </div>
-    )
-}
+  function updateName(newName) {
+    setName(newName);
+  }
+
+  return (
+    <div style={{ background: "tomato", padding: "10px" }}>
+      <Child name={name} send={showMessage} update={updateName}></Child>
+    </div>
+  );
+};
