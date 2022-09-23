@@ -48,6 +48,13 @@ export default function TaskList() {
       setState(tempTask)
     }
 
+    function addTask(task){
+      console.log("delete this task;", task)
+      const index = state.indexOf(task)
+      const tempTask= [...state]
+      tempTask.push(task)
+      setState(tempTask)
+    }
 
 
 
@@ -81,9 +88,9 @@ export default function TaskList() {
               </tbody>
             </table>
           </div>
-          <TaskForm></TaskForm>
         </div>
       </div>
+      <TaskForm add={addTask} ></TaskForm>
     </div>
   );
 }
