@@ -30,6 +30,19 @@ export default function TaskList() {
     };
   }, [state]);
 
+
+    function completeTask(task){
+      console.log("complete this task;", task)
+
+    }
+
+
+
+
+
+
+
+
   return (
     <div>
       <div className="col-12">
@@ -53,7 +66,7 @@ export default function TaskList() {
               </thead>
               <tbody>
                 {state.map((props, index) => {
-                  return <Taskk key={index} props={props}></Taskk>;
+                  return <Taskk key={index} props={props} complete={completeTask} ></Taskk>;
                 })}
               </tbody>
             </table>

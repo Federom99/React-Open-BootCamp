@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Task } from "../../models/class";
 import { LEVELS } from "../../models/levels";
 
-export default function Taskk({ props }) {
+export default function Taskk({ props, complete }) {
   useEffect(() => {
     console.log("tarea creada");
     return () => {
@@ -38,9 +38,9 @@ export default function Taskk({ props }) {
 
   function taskIcon(){
     if(props.completed){
-        return(<i className="bi-toggle-on" style={{ color: "green" }}></i>)
+        return(<i onClick={()=>complete(props)} className="bi-toggle-on task-action" style={{ color: "green" }}></i>)
     }else{
-        return(<i className="bi-toggle2-off" style={{ color: "grey" }}></i>)
+        return(<i  onClick={()=>complete(props)} className="bi-toggle2-off task-action" style={{ color: "grey" }}></i>)
     }
   }
 
@@ -57,7 +57,7 @@ export default function Taskk({ props }) {
       </td>
       <td className="align-middle">
         {taskIcon()}
-        <i className="bi-trash" style={{ color: "tomato" }}></i>
+        <i className="bi-trash task-action" style={{ color: "tomato" }}></i>
       </td>
     </tr>
   );

@@ -13,12 +13,12 @@ function App() {
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Saludar name="fede"></Saludar> */}
-        {/* <TaskList></TaskList> */}
+        <TaskList></TaskList>
         {/* <Ejemplo></Ejemplo> */}
         {/* <Ejemplo2></Ejemplo2> */}
         {/* <MiComponenteConContexto></MiComponenteConContexto> */}
       {/* </header> */}
-      <Father></Father>
+      {/* <Father></Father> */}
     </div>
   );
 }
